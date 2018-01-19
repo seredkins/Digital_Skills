@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Digital Skills.xcodeproj">
+      location = "self:/Users/serg/Desktop/Developer/Digital Skills/Digital_Skills.xcodeproj">
    </FileRef>
 </Workspace>

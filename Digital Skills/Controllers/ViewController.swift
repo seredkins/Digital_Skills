@@ -29,16 +29,23 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "Login" else { return }
         guard let tabBarController = segue.destination as? UITabBarController else { return }
-        guard let newsController = tabBarController.viewControllers?.first as? NewsViewController else { return }
+        guard ((tabBarController.viewControllers?.first as? NewsTableViewController) != nil) else { return }
         
-        var news = [NewsModel]()
+        
+//        var news = NewsListModel()
+        
+        news.refresh();
         
         let model = NewsModel()
         model.title = "qwerty"
         model.details = "details"
         news.append(model)
         
-        newsController.news = news
+        let model2 = NewsModel()
+        model2.title = "dhfjdf"
+        model2.details = "sijdijwhdiuwehfewfihifhiwefhiwehf"
+        news.append(model2)
+//        newsController.news = news
     }
 
 }
