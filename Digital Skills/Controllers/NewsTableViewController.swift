@@ -47,9 +47,7 @@ class NewsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         guard ((segue.destination as? NewsViewController) != nil) else { return }
         guard let cell = sender as? UITableViewCell else { return }
-        
-//        private
-        
+                
     }
 
 }
