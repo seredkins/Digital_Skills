@@ -48,6 +48,8 @@ class NewsTableViewController: UITableViewController {
         guard ((segue.destination as? NewsViewController) != nil) else { return }
         guard let cell = sender as? UITableViewCell else { return }
         
+//        private
+        
     }
 
 }
