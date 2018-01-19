@@ -23,6 +23,7 @@ class NewsListModel{
             self.newsList = [element]
         }
     }
+    print("some changes")
         
 }
 
