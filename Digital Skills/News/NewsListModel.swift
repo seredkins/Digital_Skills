@@ -22,9 +22,7 @@ class NewsListModel{
         } else {
             self.newsList = [element]
         }
-    }
-    print("some changes")
-        
+    }        
 }
 
 var news = NewsListModel()
