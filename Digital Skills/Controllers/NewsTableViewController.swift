@@ -10,12 +10,23 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
     
-//    var news = NewsListModel()
+    var news = [NewsModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var model = NewsModel()
+        model.title = "qwerty"
+        model.details = "details"
+        news.append(model)
+        
+//        let model2 = NewsModel()
+        model.title = "dhfjdf"
+        model.details = "sijdijwhd iuw ehf ewfihifhiwe  fhiw sijdi  jw diuw ehfew  hiwefh  wehfs hd ehfewfihifhiw fhiweh ij i  whdiuwehfe wfihi  fhiwefh hfsijdijwh iu fewfihi fhiwefhiw hfsi whdiuwehfewfihifhiwefhiwehf"
+        news.append(model)
 
     }
+
 
     // MARK: - Table view data source
 
@@ -24,16 +35,16 @@ class NewsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news.newsList?.count ?? 0
+        return news.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsReuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = news.newsList?[indexPath.row].title ?? ""
-        cell.detailTextLabel?.text = news.newsList?[indexPath.row].zipedDetails() ?? ""
-        
+        let newsData = news[indexPath.row]
+        cell.textLabel?.text = newsData.title!
+        cell.detailTextLabel?.text = String(describing: newsData.details!.prefix(97))
         
         return cell
     }
@@ -45,9 +56,10 @@ class NewsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        guard ((segue.destination as? NewsViewController) != nil) else { return }
-        guard let cell = sender as? UITableViewCell else { return }
-                
+        guard let newsViewController = segue.destination as? NewsViewController else { return }
+        
+        if let index = tableView.indexPathForSelectedRow?.row {
+            newsViewController.news = news[index]
+        }
     }
-
 }

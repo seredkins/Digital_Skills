@@ -13,12 +13,12 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     
+    var news: NewsModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        headerLabel.text = "jhfjbkgjhfe"
-        bodyLabel.text = "kdkfjkdjfjfrefurehguehguehgregregeri"
+        headerLabel.text = news?.title
+        bodyLabel.text = news?.details
     }
     
  
